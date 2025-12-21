@@ -147,39 +147,39 @@ void loop() {
   RemoteXYEngine.handler();
 
 
-  if (RemoteXYEngine.joystick_01_y > 5) {
-    int motorIleri = map(RemoteXYEngine.joystick_01_y, 0, 100, 0, 255);
+  if (RemoteXY.joystick_01_y > 5) {
+    int motorIleri = map(RemoteXY.joystick_01_y, 0, 100, 0, 255);
     ileriGit(motorIleri);
-  } else if (RemoteXYEngine.joystick_01_y < 5) {
-    int motorGeri = map((RemoteXYEngine.joystick_01_y * (-1)), 0, 100, 0, 255);
+  } else if (RemoteXY.joystick_01_y < 5) {
+    int motorGeri = map((RemoteXY.joystick_01_y * (-1)), 0, 100, 0, 255);
     geriGit(motorGeri);
-  } else if (RemoteXYEngine.joystick_01_x < 5) {
-    int motorSol = map((RemoteXYEngine.joystick_01_x * (-1)), 0, 100, 0, 255);
+  } else if (RemoteXY.joystick_01_x < 5) {
+    int motorSol = map((RemoteXY.joystick_01_x * (-1)), 0, 100, 0, 255);
     solGit(motorSol);
-  } else if (RemoteXYEngine.joystick_01_x > 5) {
-    int motorSag = map(RemoteXYEngine.joystick_01_x, 0, 100, 0, 255);
+  } else if (RemoteXY.joystick_01_x > 5) {
+    int motorSag = map(RemoteXY.joystick_01_x, 0, 100, 0, 255);
     sagGit(motorSag);
   } else {
     fren();
   }
 
 
-  int servoX = map(RemoteXYEngine.joystick_02_x, -100, 100, 0, 179);
-  servo1.Write(servoX);
-  int servoIleri = map(RemoteXYEngine.joystick_02_y, -100, 100, 0, 179);
-  servo2.Write(servoIleri);
+  int servoX = map(RemoteXY.joystick_02_x, -100, 100, 0, 179);
+  servo1.write(servoX);
+  int servoIleri = map(RemoteXY.joystick_02_y, -100, 100, 0, 179);
+  servo2.write(servoIleri);
   servoIleri -= 15;
   if (servoIleri < 0) {
     servoIleri = 0;
   } else if (servoIleri > 179) {
     servoIleri = 179;
   }
-  servo3.Write(servoIleri);
+  servo3.write(servoIleri);
 
   if (RemoteXY.switch_01 == 1) {
-    servo4.Write(30);
+    servo4.write(30);
   } else {
-    servo4.Write(120);
+    servo4.write(120);
   }
 
 
