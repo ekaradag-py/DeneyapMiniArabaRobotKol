@@ -147,16 +147,16 @@ void loop() {
   RemoteXYEngine.handler();
 
 
-  if (RemoteXY.joystick_01_y > 5) {
+  if (RemoteXY.joystick_01_y > 10) {
     int motorIleri = map(RemoteXY.joystick_01_y, 0, 100, 0, 255);
     ileriGit(motorIleri);
-  } else if (RemoteXY.joystick_01_y < 5) {
+  } else if (RemoteXY.joystick_01_y < -10) {
     int motorGeri = map((RemoteXY.joystick_01_y * (-1)), 0, 100, 0, 255);
     geriGit(motorGeri);
-  } else if (RemoteXY.joystick_01_x < 5) {
+  } else if (RemoteXY.joystick_01_x < -10) {
     int motorSol = map((RemoteXY.joystick_01_x * (-1)), 0, 100, 0, 255);
     solGit(motorSol);
-  } else if (RemoteXY.joystick_01_x > 5) {
+  } else if (RemoteXY.joystick_01_x > 10) {
     int motorSag = map(RemoteXY.joystick_01_x, 0, 100, 0, 255);
     sagGit(motorSag);
   } else {
